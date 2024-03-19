@@ -1,5 +1,7 @@
 using BlazorCrudApp.Client.Pages;
 using BlazorCrudApp.Components;
+using BlazorCrudApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services
+    .AddDbContext<AppDbContext>(x => x.UseInMemoryDatabase("BlazorCrudApp"));
 
 var app = builder.Build();
 
