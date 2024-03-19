@@ -20,17 +20,14 @@ namespace BlazorCrudApp.Models
 
         [StringLength(100, ErrorMessage = "Endereço não pode possuir mais que 100 caracteres")]
         [MinLength(20, ErrorMessage = "Nome deve possuir no mínimo 20 caracteres")]
+        [DisplayName("Endereço")]
         public string Address { get; set; } = address;
 
         [EmailAddress(ErrorMessage = "Endereço de Email Inválido.")]
         [DataType(DataType.EmailAddress)]
+        [DisplayName("Email")]
         public string Email { get; set; } = email;
 
-        public bool Enable { get; set; } = true;
-
-
         public void UpdateName(string name) => Name = name;
-
-        public void IsEnable(bool isEnable) => Enable = isEnable;
     }
 }
